@@ -1,79 +1,120 @@
-html {
+:root {
+    --color-bg: hsl(218, 23%, 16%);
+    --color-card: hsl(217, 19%, 24%);
+    --color-text: hsl(193, 38%, 86%);
+    --color-accent: hsl(150, 100%, 66%);
+    --font-family: 'Manrope', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    background-color: rgb(35, 45, 59);
 }
 
 body {
-    margin: 100px auto;
-}
-
-.container {
-    width: 480px;
-    height: 280px;
+    font-family: var(--font-family);
+    background-color: var(--color-bg);
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 auto;
-    padding: 0 20px;
-    border-radius: 20px;
-    background-color: rgb(81, 81, 107);
-    box-shadow: 4px 4px 10px rgb(30, 40, 48);   
-}
-
-.container div {
-    margin-top: 25px;
-}
-
-span {
-    font-size: 0.7rem;
-    font-family: Arial, Helvetica, sans-serif;
-    color: rgb(57, 207, 157);
-    margin-top: 4vh;
-    letter-spacing: 2px;
-}
-
-h1 {
-    font-size: 1rem;
-    font-family: Arial, Helvetica, sans-serif;
-    color: rgb(211, 211, 211);
-    line-height: 25px;
-    text-align: center;
-}
-
-button {
-    width: 15%;
-    height: 20%;
-    background-color: rgb(57, 207, 157);
-    padding: 10px 10px;
-    border-radius: 100%;
-    float: right;
-    position: relative;
-    top: 4.5vh;
-}
-
-button img {
     justify-content: center;
     align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
 }
 
-button:hover {
-    background-color: rgb(44, 177, 133);
+.card {
+    background-color: var(--color-card);
+    width: 100%;
+    max-width: 540px;
+    border-radius: 15px;
+    padding: 3rem 3rem 4.5rem 3rem;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-button:active {
-    background-color: rgb(38, 134, 102);
+.advice-header {
+    color: var(--color-accent);
+    font-size: 0.8rem;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+.advice-text {
+    color: var(--color-text);
+    font-size: 1.75rem;
+    margin-bottom: 2.5rem;
+    min-height: 3rem; /* Prevent jumpiness */
+}
+
+.advice-text::before {
+    content: open-quote;
+}
+
+.advice-text::after {
+    content: close-quote;
 }
 
 .divider {
-    width: 80%;
-    color: white;
-    margin-bottom: -50px;
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
 }
 
-@media screen and (max-width: 500px) {
-    .container {
-        max-width: 400px;
+.divider img {
+    width: 100%;
+    height: auto;
+}
+
+.dice-btn {
+    background-color: var(--color-accent);
+    border: none;
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -32px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dice-btn:hover {
+    box-shadow: 0 0 40px var(--color-accent);
+}
+
+.dice-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.dice-icon {
+    width: 24px;
+    height: 24px;
+}
+
+/* Loading animation for the dice */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.dice-btn.loading .dice-icon {
+    animation: spin 1s linear infinite;
+}
+
+@media (max-width: 500px) {
+    .card {
+        padding: 2.5rem 1.5rem 4rem 1.5rem;
     }
     
+    .advice-text {
+        font-size: 1.5rem;
+    }
 }

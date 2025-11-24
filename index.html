@@ -5,19 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Advice Generator API</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="main.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <div>
-            <span>ADVICE #</span><span class="adviceId"></span>
+    <main class="card">
+        <div class="advice-header">
+            ADVICE #<span class="advice-id"></span>
         </div>
-        <h1></h1>
-        <img class="divider" src="pattern-divider-desktop.svg" alt="a visual divider">
-        <button>
-            <img class="dice" src="icon-dice.svg" alt="dice logo to be clicked">
+        <h1 class="advice-text"></h1>
+        <picture class="divider">
+            <source media="(max-width: 500px)" srcset="pattern-divider-mobile.svg">
+            <img src="pattern-divider-desktop.svg" alt="divider">
+        </picture>
+        <button class="dice-btn" aria-label="Get new advice">
+            <img class="dice-icon" src="icon-dice.svg" alt="">
         </button>
-    </div>
+    </main>
 </body>
 </html>
